@@ -1,4 +1,4 @@
-# Advent of Code 2018 - Day 2 - Inventory Management System
+# Advent of Code 2018 - Day 2 - Inventory Management System - Part 2
 # https://adventofcode.com/2018/day/2
 
 import sys
