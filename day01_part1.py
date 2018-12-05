@@ -3,5 +3,11 @@
 
 import sys
 
-numbers = [int(line.strip()) for line in sys.stdin.readlines()]
-print(sum(numbers))
+def parse_input(lines):
+    return [int(line.strip()) for line in lines]
+
+def part1(changes):
+    return sum(changes)
+
+if __name__ == "__main__":
+    print(part1(parse_input(sys.stdin.readlines())))
