@@ -30,4 +30,5 @@ def count_overlaps(claims_map):
 def part1(claims):
     return count_overlaps(map_claims(claims))
 
-print(part1(parse_input(sys.stdin.readlines())))
+if __name__ == "__main__":
+    print(part1(parse_input(sys.stdin.readlines())))
