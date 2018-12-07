@@ -29,8 +29,11 @@ def get_naps_for_guard(naps_map, guard):
     logs = [naps_map[x] for x in naps_map if naps_map[x]["guard"] == guard]
     return list(zip(*[x["naps"] for x in logs]))
 
+def get_guard_ids(naps_map):
+    return set([x["guard"] for x in naps_map.values()])
+
 def part1(naps_map):
-    guards = set([x["guard"] for x in naps_map.values()])
+    guards = get_guard_ids(naps_map)
     best_guard = None
     best_minute = None
     best_total = 0
@@ -41,11 +44,12 @@ def part1(naps_map):
             best_total = naps_total
             best_guard = guard
     best_overlap = 0
+    naps = get_naps_for_guard(naps_map, best_guard)
     for minute in range(60):
-        naps = get_naps_for_guard(naps_map, best_guard)
         if sum(naps[minute]) > best_overlap:
             best_overlap = sum(naps[minute])
             best_minute = minute
     return best_guard * best_minute
 
-print(part1(parse_input(sys.stdin.readlines())))
+if __name__ == "__main__":
+    print(part1(parse_input(sys.stdin.readlines())))
